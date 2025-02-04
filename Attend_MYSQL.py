@@ -374,4 +374,4 @@ def hr_dashboard():
 if __name__ == '__main__':
     init_db()
     add_sample_workers()
-    app.run(debug=True, port=5001)
+    app.run(host='0.0.0.0', port=10000)  # Render requires the app to be on port 10000
