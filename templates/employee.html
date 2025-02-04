@@ -1,0 +1,223 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title> Sign in</title>
+  <link rel="stylesheet" type="text/css" href="static/attend.css">
+</head>
+
+<body>
+  <div class="login-root">
+    <div class="box-root flex-flex flex-direction--column" style="min-height: 100vh;flex-grow: 1;">
+      <div class="loginbackground box-background--white padding-top--64">
+        <div class="loginbackground-gridContainer">
+          <div class="box-root flex-flex" style="grid-area: top / start / 8 / end;">
+            <div class="box-root" style="background-image: linear-gradient(white 0%, rgb(247, 250, 252) 33%); flex-grow: 1;">
+            </div>
+          </div>
+          <div class="box-root flex-flex" style="grid-area: 4 / 2 / auto / 5;">
+            <div class="box-root box-divider--light-all-2 animationLeftRight tans3s" style="flex-grow: 1;"></div>
+          </div>
+          <div class="box-root flex-flex" style="grid-area: 6 / start / auto / 2;">
+            <div class="box-root box-background--blue800" style="flex-grow: 1;"></div>
+          </div>
+          <div class="box-root flex-flex" style="grid-area: 7 / start / auto / 4;">
+            <div class="box-root box-background--blue animationLeftRight" style="flex-grow: 1;"></div>
+          </div>
+          <div class="box-root flex-flex" style="grid-area: 8 / 4 / auto / 6;">
+            <div class="box-root box-background--gray100 animationLeftRight tans3s" style="flex-grow: 1;"></div>
+          </div>
+          <div class="box-root flex-flex" style="grid-area: 2 / 15 / auto / end;">
+            <div class="box-root box-background--cyan200 animationRightLeft tans4s" style="flex-grow: 1;"></div>
+          </div>
+          <div class="box-root flex-flex" style="grid-area: 3 / 14 / auto / end;">
+            <div class="box-root box-background--blue animationRightLeft" style="flex-grow: 1;"></div>
+          </div>
+          <div class="box-root flex-flex" style="grid-area: 4 / 17 / auto / 20;">
+            <div class="box-root box-background--gray100 animationRightLeft tans4s" style="flex-grow: 1;"></div>
+          </div>
+          <div class="box-root flex-flex" style="grid-area: 5 / 14 / auto / 17;">
+            <div class="box-root box-divider--light-all-2 animationRightLeft tans3s" style="flex-grow: 1;"></div>
+          </div>
+        </div>
+      </div>
+      <div class="box-root padding-top--24 flex-flex flex-direction--column" style="flex-grow: 1; z-index: 9;">
+        <div class="box-root padding-top--48 padding-bottom--24 flex-flex flex-justifyContent--center">
+          <h1><a href="http://blog.stackfindover.com/" rel="dofollow">Sign up </a></h1>
+        </div>
+        <div class="formbg-outer">
+          <div class="formbg">
+            <div class="formbg-inner padding-horizontal--48">
+              <span class="padding-bottom--15">New Employee Sign in to your account</span>
+
+              {% if error %}
+        <div class="error">
+            <p>{{ error }}</p>
+        </div>
+        {% endif %}
+
+              
+              <form action="{{ url_for('Register') }}" method="POST">
+                <div class="field padding-bottom--24">
+                    <label>Name:</label>
+                    <input type="text" name="name" required>
+                </div>
+                <div class="field padding-bottom--24">
+                    <label>Surname:</label>
+        <input type="text" name="surname" required>
+                </div>
+
+                <div class="field padding-bottom--24">
+                  <label>Date of Birth:</label>
+                  <input type="date" id="dob" name="dob" required readonly>
+                </div>
+
+                <div class="field padding-bottom--24">
+                    <label>Email:</label>
+                    <input type="email" name="email" required>
+                </div>
+
+                <div class="field padding-bottom--24">
+                    <label for="cellphone">Cellphone:</label>
+                    <input type="text" id="cellphone" name="cellphone" maxlength="10" required>
+                </div>
+
+                <div class="field padding-bottom--24">
+                    <label for="id_number">ID Number:</label>
+                    <input type="text" id="id_number" name="id_number" maxlength="13" required>
+                </div>
+
+                <div class="custom-select">
+                    <label>Course:</label>
+        <select id="course" name="course" required>
+            <option value="Electrical Engineering">Electrical Engineering</option>
+            <option value="Mechanical Engineering">Mechanical Engineering</option>
+            <option value="Civil Engineering">Civil Engineering</option>
+            <!-- Add more courses as needed -->
+        </select>
+                </div>
+
+                <div class="custom-select">
+                    <label>Specialization:</label>
+        <select id="specialization" name="specialization" required>
+            <option value="Heavy Current">Heavy Current</option>
+            <option value="Process Instrumentation">Process Instrumentation</option>
+            <option value="Electronics">Electronics</option>
+            <option value="Computer Systems">Computer Systems</option>
+            <!-- for mechanical Engineering -->
+            
+            <option value="Automobile Engineering">Automobile Engineering</option>
+            <option value="Manufacturing Engineering">Manufacturing Engineering</option>
+            <option value="Production Engineering">Production Engineering</option>
+            <!-- for civil Engineering -->
+
+            <option value="Structural Engineering">Structural Engineering'</option>
+            <option value="Construction Management">Construction Management</option>
+            <option value="Geotechnical Engineering">Geotechnical Engineering</option>
+
+
+            
+        </select>
+                </div>
+
+                <div class="field padding-bottom--24">
+                    <label>Address:</label>
+                    <input type="text" name="address" required>
+                </div>
+
+                <div class="custom-select">
+                    <label>Cohort:</label>
+        <select name="cohort" required>
+        <option value="cohort1">cohort1</option>
+        <option value="cohort2">cohort2</option>
+        <option value="cohort3">cohort3</option>
+        </select>
+                </div>
+
+
+            <br>
+            
+        <button type="submit">Register</button>
+    </form>
+    {% if error %}
+    <p style="color: red;">{{ error }}</p>
+    {% endif %}
+    <script>
+        function validateForm() {
+            const dob = document.getElementById('dob').value;
+            const error = document.getElementById('error');
+
+            if (!dob) {
+                error.textContent = 'Date of birth is required.';
+                return false;
+            }
+
+            const today = new Date();
+            const birthDate = new Date(dob);
+            const age = today.getFullYear() - birthDate.getFullYear();
+            const monthDifference = today.getMonth() - birthDate.getMonth();
+
+            if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDate.getDate())) {
+                age--;
+            }
+
+            if (age < 18 || age > 35) {
+                error.textContent = 'Date of birth must correspond to an age between 18 and 35.';
+                return false;
+            }
+
+            error.textContent = ''; // Clear error if validation passes
+            return true;
+        }
+
+        // JavaScript to dynamically change specialization options based on course selection
+        document.getElementById('course').addEventListener('change', function () {
+            const course = this.value;
+            const specializationSelect = document.getElementById('specialization');
+            specializationSelect.innerHTML = ''; // Clear current options
+
+            let specializations = [];
+
+            if (course === 'Electrical Engineering') {
+                specializations = ['Heavy Current', 'Process Instrumentation', 'Electronics', 'Computer Systems'];
+            } else if (course === 'Mechanical Engineering') {
+                specializations = ['Automobile Engineering', 'Manufacturing Engineering', 'Production Engineering'];
+            } else if (course === 'Civil Engineering') {
+                specializations = ['Structural Engineering', 'Construction Management', 'Geotechnical Engineering'];
+            }
+
+            // Add the new options to the specialization dropdown
+            specializations.forEach(function (specialization) {
+                const option = document.createElement('option');
+                option.value = specialization;
+                option.textContent = specialization;
+                specializationSelect.appendChild(option);
+            });
+        });
+
+        // Trigger change event to populate specializations on page load based on the default course
+        document.getElementById('course').dispatchEvent(new Event('change'));
+
+        // JavaScript to dynamically change date of birth according to id number first 6 digits
+        document.getElementById('id_number').addEventListener('input', function () {
+          const idNumber = this.value;
+          if (idNumber.length >= 6) {
+            let year = idNumber.substring(0, 2);
+            let month = idNumber.substring(2, 4);
+            let day = idNumber.substring(4, 6);
+            
+            const currentYear = new Date().getFullYear() % 100; 
+            const fullYear = parseInt(year, 10) > currentYear ? `19${year}` : `20${year}`;
+            
+            if (parseInt(month, 10) >= 1 && parseInt(month, 10) <= 12 && parseInt(day, 10) >= 1 && parseInt(day, 10) <= 31) {
+              document.getElementById('dob').value = `${fullYear}-${month}-${day}`;
+            }
+          }
+        });
+
+    </script>
+
+
+   
+</body>
+</html>
+

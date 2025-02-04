@@ -1,0 +1,29 @@
+{
+	"folders": [
+		{
+			"path": "../Node"
+		},
+		{
+			"path": "."
+		},
+		{
+			"path": "../sending sensors data to flask"
+		},
+		{
+			"name": "Blink_LED",
+			"path": "../../../Documents/PlatformIO/Projects/Blink_LED"
+		},
+		{
+			"name": "blink",
+			"path": "../../../Documents/PlatformIO/Projects/blink"
+		}
+	],
+	"settings": {
+		"python.analysis.typeshedPaths": [
+			"~/.micropico-stubs/included"
+		],
+		"python.analysis.extraPaths": [
+			"~/.micropico-stubs/included"
+		]
+	}
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Registration Successful</title>
+    <link rel="stylesheet" type="text/css" href="static/out.css">
+</head>
+<body>
+    
+
+    <section class="hero">
+        <div class="overlay">
+            <div class="content">
+                <h1>Registration Successful</h1>
+                <h2> welcome <span class="uppercase">{{name}}</span> <span class="uppercase">{{surname}}</span> <br>
+                    your are now Registered to the companies databases </h2>
+                
+            
+                <p> Your Worker ID is: {{ worker_id }}
+                    
+                    this is the one you will use to log in with when you attend daily at work  </p>
+            
+                <h3> please dont forget the worker id </h3>
+                <a href="{{ url_for('Home') }}"> Signin</a>
+            </div>
+        </div>
+      </section>
+    
+    
+</body>
+</html>

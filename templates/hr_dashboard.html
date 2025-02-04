@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    
+<head>
+    <title>HR Dashboard</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        h2 {
+            margin-top: 30px;
+        }
+        .time {
+            font-family: monospace;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="static/home.css">
+</head>
+<body>
+    <section class="hero">
+        <div class="overlay">
+            <div class="content">
+
+
+    
+
+    
+
+<!-- <pre>{{ attendance }}</pre> -->
+    <!-- Present Workers Table -->
+    <h2>Attendance Dashboard for {{ date }}</h2>
+    <h2>Present Employees</h2>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Date</th>
+        <th>Sign-In Time</th>
+    </tr>
+    {% for worker in present %}
+    <tr>
+        <td>{{ worker.name }}</td>
+        <td>{{ worker.surname }}</td>
+        <td>{{ worker.date }}</td>
+        <td>{{ worker.sign_in_time }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<h2>Late Employees</h2>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Date</th>
+        <th>Late Duration</th>
+    </tr>
+    {% for worker in late %}
+    <tr>
+        <td>{{ worker.name }}</td>
+        <td>{{ worker.surname }}</td>
+        <td>{{ worker.date }}</td>
+        <td>{{ worker.late_duration }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<h2>Absent Employees</h2>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Surname</th>
+    </tr>
+    {% for worker in absent %}
+    <tr>
+        <td>{{ worker.name }}</td>
+        <td>{{ worker.surname }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+    
+</div>
+</div>
+</section>
+</body>
+</html>

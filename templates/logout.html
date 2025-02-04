@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Out</title>
+    <link rel="stylesheet" type="text/css" href="static/go.css">
+</head>
+<body>
+    <section class="hero">
+        <div class="overlay">
+            <div class="content">
+                <h1>Thank you for signing in, {{ worker_name }}</h1>
+                <p>Status: {{ status }}</p>
+                <p>Arrival Time: {{ arrival_time }}</p>
+                {% if status == "Late" %}
+                    <p>Late Duration: {{ late_duration }}</p>
+                {% endif %}
+                <a href="{{ url_for('home') }}">Sign In Again</a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign In</title>
+    <link rel="stylesheet" type="text/css" href="static/go.css">
+</head>
+<body>
+    
+
+    <section class="hero">
+        <div class="overlay">
+            <div class="content">
+                <h1>Worker Sign In</h1>
+                <form method="POST" action="/signin">
+                    <label for="worker_id">Worker ID:</label>
+                    <input type="text" id="worker_id" name="worker_id" required>
+                    <button type="submit">Sign In</button>
+                </form>
+                
+                <h1>Worker Sign Out</h1>
+                <form method="POST" action="/signout">
+                    <label for="worker_id">Worker ID:</label>
+                    <input type="text" id="worker_id" name="worker_id" required>
+                    <button type="submit">Sign Out</button>
+                </form>
+                <a href="{{ url_for('home') }}"> Signin</a>
+            </div>
+        </div>
+      </section>
+</body>
+</html>

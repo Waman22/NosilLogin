@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Missed Days</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Missed Days</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Worker</th>
+                    <th>Absent Dates</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for worker, dates in worker_absence.items() %}
+                    <tr>
+                        <td>{{ worker }}</td>
+                        <td>
+                            <ul>
+                                {% for date in dates %}
+                                    <li>{{ date }}</li>
+                                {% endfor %}
+                            </ul>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
