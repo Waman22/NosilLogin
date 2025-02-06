@@ -1,6 +1,12 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 from datetime import datetime
 import sqlite3
+import os
+
+
+DB_PATH = os.path.join(os.getcwd(), "Employee_attendance.db")
+conn = sqlite3.connect(DB_PATH)
+
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'
@@ -16,7 +22,7 @@ functionality for workers to sign in, record their attendance,
 and allow HR to view attendance records through a dashboard."""
 
 def init_db():
-    conn = sqlite3.connect('Employee_attendance.db')
+    conn = sqlite3.connect(DB_PATH)
     c = conn.cursor()
 
     # Create attendance table
@@ -75,7 +81,7 @@ def init_db():
 
 # Helper function to get database connection
 def get_db_connection():
-    conn = sqlite3.connect('Employee_attendance.db')
+    conn = sqlite3.connect(DB_PATH)
     conn.row_factory = sqlite3.Row
     return conn
 
