@@ -14,5 +14,6 @@ WTForms==3.2.1
 flask
 gunicorn
 mysql-connector-python
-sqlite3==3.35.4
+Flask
+sqlite3
 
